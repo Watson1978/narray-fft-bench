@@ -1,0 +1,15 @@
+/data/*
+!/data/.gitkeep
+
+/python/.venv/
+__pycache__/
+*.pyc
+
+/.bundle/
+/vendor/
+Gemfile.lock
+
+/tmp/
+*.log
+*.nsys-rep
+*.ncu-rep

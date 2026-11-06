@@ -1,0 +1,5 @@
+numpy==2.5.3
+scipy==1.18.1
+
+# Pick the wheel that matches the CUDA major version (cupy-cuda12x for 12.x).
+cupy-cuda13x==14.2.0

@@ -1,0 +1,65 @@
+# name	mode	ruby command	python command
+# The CPU table: Numo (numo-pocketfft, through FFTBench::NumoFFT) against
+# numpy + scipy, fp64 only (pocketfft has no single precision). Same columns
+# as conditions.tsv.
+d_fftconvolve_small	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size small --variant fftconvolve --inner 5000	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size small --variant fftconvolve --inner 5000
+d_fftconvolve_n1e4	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e4 --variant fftconvolve --inner 2500	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e4 --variant fftconvolve --inner 2500
+d_fftconvolve_n1e5	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e5 --variant fftconvolve --inner 150	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e5 --variant fftconvolve --inner 150
+d_fftconvolve_n1e6	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e6 --variant fftconvolve --inner 12	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e6 --variant fftconvolve --inner 12
+d_rfft_pow2_n1e5	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e5 --variant rfft_pow2 --inner 80	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e5 --variant rfft_pow2 --inner 80
+d_rfft_exact_n1e5	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e5 --variant rfft_exact --inner 15	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e5 --variant rfft_exact --inner 15
+d_fft_pow2_n1e5	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e5 --variant fft_pow2 --inner 60	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e5 --variant fft_pow2 --inner 60
+d_fft_exact_n1e5	steady	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e5 --variant fft_exact --inner 15	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e5 --variant fft_exact --inner 15
+d_fftconvolve_n1e5_first	first	DTYPE=fp64 ruby script/bench.rb --problem bignum_mul --size n1e5 --variant fftconvolve	DTYPE=fp64 $PYTHON python/bench.py --problem bignum_mul --size n1e5 --variant fftconvolve
+e_fft2_small	steady	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size small --variant fft2 --inner 250	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size small --variant fft2 --inner 250
+e_fft2_n512	steady	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size n512 --variant fft2 --inner 60	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size n512 --variant fft2 --inner 60
+e_fft2_n1024	steady	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size n1024 --variant fft2 --inner 12	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size n1024 --variant fft2 --inner 12
+e_fft2_n2048	steady	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size n2048 --variant fft2 --inner 2	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size n2048 --variant fft2 --inner 2
+e_fft2_n4096	steady	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size n4096 --variant fft2 --inner 1	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size n4096 --variant fft2 --inner 1
+e_rfft2_n1024	steady	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size n1024 --variant rfft2 --inner 30	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size n1024 --variant rfft2 --inner 30
+e_fft2_n1024_first	first	DTYPE=fp64 ruby script/bench.rb --problem phase_correlation --size n1024 --variant fft2	DTYPE=fp64 $PYTHON python/bench.py --problem phase_correlation --size n1024 --variant fft2
+g_wk_pow2	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant wk_pow2 --inner 250	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant wk_pow2 --inner 250
+g_wk_mixed	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant wk_mixed --inner 230	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant wk_mixed --inner 230
+g_wk_prime	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant wk_prime --inner 28	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant wk_prime --inner 28
+g_welch256_pow2	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch256_pow2 --inner 1900	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch256_pow2 --inner 1900
+g_welch1024_pow2	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch1024_pow2 --inner 1800	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch1024_pow2 --inner 1800
+g_welch4096_pow2	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch4096_pow2 --inner 1300	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch4096_pow2 --inner 1300
+g_welch256_mixed	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch256_mixed --inner 1650	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch256_mixed --inner 1650
+g_welch1024_mixed	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch1024_mixed --inner 1700	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch1024_mixed --inner 1700
+g_welch4096_mixed	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch4096_mixed --inner 1200	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch4096_mixed --inner 1200
+g_welch256_prime	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch256_prime --inner 1900	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch256_prime --inner 1900
+g_welch1024_prime	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch1024_prime --inner 1900	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch1024_prime --inner 1900
+g_welch4096_prime	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch4096_prime --inner 1300	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch4096_prime --inner 1300
+g_welch_cycle	steady	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch_cycle --inner 95	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch_cycle --inner 95
+g_wk_prime_first	first	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant wk_prime	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant wk_prime
+g_welch1024_mixed_first	first	DTYPE=fp64 ruby script/bench.rb --problem spectrum --variant welch1024_mixed	DTYPE=fp64 $PYTHON python/bench.py --problem spectrum --variant welch1024_mixed
+f_batch_n64_s1000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n64_s1000 --variant batch --inner 1300	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n64_s1000 --variant batch --inner 1300
+f_batch_n64_s10000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n64_s10000 --variant batch --inner 110	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n64_s10000 --variant batch --inner 110
+f_batch_n256_s1000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n256_s1000 --variant batch --inner 290	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n256_s1000 --variant batch --inner 290
+f_batch_n256_s10000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n256_s10000 --variant batch --inner 16	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n256_s10000 --variant batch --inner 16
+f_batch_n1024_s1000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n1024_s1000 --variant batch --inner 50	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n1024_s1000 --variant batch --inner 50
+f_batch_n1024_s10000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n1024_s10000 --variant batch --inner 4	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n1024_s10000 --variant batch --inner 4
+f_single_n64_s10000	steady	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n64_s10000 --variant single --inner 9	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n64_s10000 --variant single --inner 9
+f_batch_n1024_s1000_first	first	DTYPE=fp64 ruby script/bench.rb --problem ofdm --size n1024_s1000 --variant batch	DTYPE=fp64 $PYTHON python/bench.py --problem ofdm --size n1024_s1000 --variant batch
+b_rk4_n64	steady	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size small --inner 1300	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size small --inner 1300
+b_rk4_n256	steady	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size n256 --inner 75	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size n256 --inner 75
+b_rk4_n512	steady	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size n512 --inner 12	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size n512 --inner 12
+b_rk4_n1024	steady	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size n1024 --inner 4	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size n1024 --inner 4
+b_rk4_n2048	steady	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size n2048 --inner 1	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size n2048 --inner 1
+b_rk4_n4096	steady	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size n4096 --inner 1	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size n4096 --inner 1
+b_rk4_n1024_first	first	DTYPE=fp64 ruby script/bench.rb --problem taylor_green --size n1024	DTYPE=fp64 $PYTHON python/bench.py --problem taylor_green --size n1024
+c_rfftn_n64	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size small --variant rfftn --inner 200	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size small --variant rfftn --inner 200
+c_rfftn_n128	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n128 --variant rfftn --inner 25	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n128 --variant rfftn --inner 25
+c_rfftn_n256	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n256 --variant rfftn --inner 2	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n256 --variant rfftn --inner 2
+c_fftn_n128	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n128 --variant fftn --inner 7	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n128 --variant fftn --inner 7
+c_fftn_n256	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n256 --variant fftn --inner 1	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n256 --variant fftn --inner 1
+c_axes01_n128	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n128 --variant axes01 --inner 30	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n128 --variant axes01 --inner 30
+c_axes01_n256	steady	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n256 --variant axes01 --inner 3	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n256 --variant axes01 --inner 3
+c_rfftn_n128_first	first	DTYPE=fp64 ruby script/bench.rb --problem poisson3d --size n128 --variant rfftn	DTYPE=fp64 $PYTHON python/bench.py --problem poisson3d --size n128 --variant rfftn
+a_rfft_f300	steady	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size f300 --variant rfft --inner 650	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size f300 --variant rfft --inner 650
+a_rfft_f3000	steady	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size small --variant rfft --inner 64	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size small --variant rfft --inner 64
+a_rfft_f30000	steady	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size f30000 --variant rfft --inner 5	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size f30000 --variant rfft --inner 5
+a_dft_f300	steady	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size f300 --variant dft --inner 420	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size f300 --variant dft --inner 420
+a_dft_f3000	steady	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size small --variant dft --inner 60	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size small --variant dft --inner 60
+a_dft_f30000	steady	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size f30000 --variant dft --inner 5	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size f30000 --variant dft --inner 5
+a_rfft_f3000_first	first	DTYPE=fp64 ruby script/bench.rb --problem whisper_mel --size small --variant rfft	DTYPE=fp64 $PYTHON python/bench.py --problem whisper_mel --size small --variant rfft
